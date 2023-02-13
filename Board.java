@@ -12,7 +12,7 @@ public class Board{
 
     /**
      * Initializes the board
-     * 
+     *
      * @param   column  position of queen in row 0
      */
     public Board(int column){
@@ -20,10 +20,17 @@ public class Board{
         col = column;
         Arrays.fill(queens, -1);
     }
-    
+
+    public int[] getBoard(){
+        int[] data = Arrays.copyOf(queens,8);
+        if(row<8)
+            data[row] = -1;
+        return data;
+    }
+
     /**
      * Returns if board is finished
-     * 
+     *
      * @return  boolean status
      */
     public boolean isSolved(){
@@ -32,14 +39,14 @@ public class Board{
 
     /**
      * Progresses the board by one move
-     * 
+     *
      * @return  formatted string
      */
     public String next(){
         if(row >= 8){
             return "A solution is found. Restart program to start over.";
         }
-        
+
         count++;
 
         if(count==1){
@@ -85,7 +92,7 @@ public class Board{
 
     /**
      * A string representation of the board
-     * 
+     *
      * @return      formatted string
      */
     public String toString(){
@@ -106,7 +113,7 @@ public class Board{
 
     /**
      * Number of times next() has been called
-     * 
+     *
      * @return      total moves
      */
     public int getMoveCount(){
